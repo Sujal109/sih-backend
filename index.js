@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
 import dataRoutes from "./routes/dataRoutes.js";
+import uploadRoutes from "./routes/uploadRoutes.js";
 import cookieParser from "cookie-parser";
 
 
@@ -18,6 +19,7 @@ app.use(express.json());
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/data", dataRoutes);
+app.use("/api/upload", uploadRoutes);
 
 // DB + Server
 mongoose.connect(process.env.MONGO_URI)
