@@ -10,13 +10,13 @@ const router = express.Router();
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
-    folder: "sih_uploads", 
+    folder: "sih_uploads",
     allowed_formats: ["jpg", "jpeg", "png", "webp"],
   },
 });
 
 const upload = multer({ storage });
 
-router.post("/", upload.single("image"), uploadImage);
+router.post("/", upload.array("images", 10), uploadImage);
 
 export default router;
