@@ -3,10 +3,15 @@ import UserData from "../models/dataModel.js";
 // Create a new flexible dataset
 export const createData = async (req, res) => {
   try {
-    const data = req.body;
+    const { walletAddress, ...data } = req.body;
+
+    if (!walletAddress) {
+      return res.status(400).json({ message: "walletAddress is required" });
+    }
 
     const newData = await UserData.create({
       user: req.user.id,
+      walletAddress,
       data
     });
 
