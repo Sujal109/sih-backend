@@ -5,6 +5,7 @@ import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
 import dataRoutes from "./routes/dataRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
+import claimRoutes from './routes/claimRoutes.js'
 import cookieParser from "cookie-parser";
 
 
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/data", dataRoutes);
 app.use("/api/upload", uploadRoutes);
+app.use("/api/claim", claimRoutes)
 
 // DB + Server
 mongoose.connect(process.env.MONGO_URI)
