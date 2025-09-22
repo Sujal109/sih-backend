@@ -1,6 +1,5 @@
 import crypto from "crypto";
 import { Readable } from "stream";
-import fetch from "node-fetch";
 import pinata from "../config/pinata.js";
 import Claim from "../models/Claim.js";
 
